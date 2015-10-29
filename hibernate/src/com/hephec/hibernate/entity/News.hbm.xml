@@ -5,7 +5,7 @@
 <!-- 对象关系映射文件 -->
 <hibernate-mapping>
 
-    <class name="com.hephec.hibernate.entity.News" table="NEWS">
+    <class name="com.hephec.hibernate.entity.News" table="NEWS" select-before-update="true">
        	<!-- 指定主键的生成方式 -->
         <id name="id" type="java.lang.Integer">
             <column name="ID" />

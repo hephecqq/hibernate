@@ -26,7 +26,29 @@
          -->
         <property name="hbm2ddl.auto">update</property>
         
+        <!-- 设置hibernate的事务隔离级别 -->
+        <property name="connection.isolation">2</property>
+       <!-- 
+       	c3p0数据连接池配置项
+        -->
+        <!-- 数据库连接池的最大连接数 -->
+        <property name="hibernate.c3p0.max_size">100</property>
+       <!-- 数据库连接池的最小连接数 -->
+       	<property name="hibernate.c3p0.min_size">20</property>
+       <!-- 当数据库连接池中的连接消耗尽是，同一时刻获取多少个数据库连接 -->
+       <property name="hibernate.c3p0.acquire_increment">20</property>
+       <!-- 数据库库连接池中连接对象在多长时间没有使用过后，就应该被销毁 -->
+       <property name="hibernate.c3p0.timeout">2000</property>
+       <!-- 连接池多长时间检测线多长时间检查一次池内的所有连接释放超时 -->
+       <property name="hibernate.c3p0.idle_test_period">5000</property>
+       <!-- 缓存Statement对象的数量 -->
+       <property name="hibernate.c3p0.max_statements">20</property>
+       <!-- 设置数据库的fetch_size -->
+       <property name="hibernate.jdbc.fetch_size">100</property>
+       <!-- 设置数据库的batch_size -->
+       <property name="hibernate.jdbc.batch_size">100</property>
        <!-- 指定管理的.hbm.xml文件 -->
+       
         <mapping resource="com/hephec/hibernate/entity/News.hbm.xml"/>
         
     </session-factory>
