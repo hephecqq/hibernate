@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-10-30 14:50:01 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2015-10-30 15:16:08 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.hephec.hibernate.mapping.Customer" table="CUSTOMER">
         <id name="customerID" type="java.lang.Integer">
@@ -11,8 +11,7 @@
         <property name="customerName" type="java.lang.String">
             <column name="CUSTOMER_NAME" />
         </property>
-        <many-to-one name="address" class="com.hephec.hibernate.mapping.Address" fetch="join" unique="true">
-            <column name="ADDRESS_ID" />
+        <many-to-one name="address" class="com.hephec.hibernate.mapping.Address" cascade="all" unique="true">
         </many-to-one>
     </class>
 </hibernate-mapping>

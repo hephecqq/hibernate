@@ -34,7 +34,27 @@ public class MappingTest {
 	}
 	@Test
 	public void testOne2One(){
-	
+		
+		Customer c1=new Customer();
+		c1.setCustomerName("hephec11");
+		Address a1=new Address();
+		a1.setAddressName("sichuan11");
+		//a1.setCustomer(c1);
+		c1.setAddress(a1);
+		
+//		session.save(c1);
+		//Customer cc=(Customer) session.get(Customer.class, 9);
+		//System.out.println(cc.getAddress().getAddressName());
+		Address aa=(Address) session.get(Address.class, 2);
+		System.out.println(aa.getCustomer().getCustomerName());
+		/**
+		 * 由于只在Address.hbm.xml文件中映射中address对象到Customer对象的双向关联,因此通过Address能够导航到
+		 * Customer,而不能通过Customer对象导航到Address是对象
+		 * */
+		/**
+		 * 默认情况下:多对一的关联关系采用延迟检索策略,而一对一关联关系采用迫切左外连接检索策略
+		 * 
+		 * */
 	}
 	@Test
 	public void testMany2One(){
