@@ -11,7 +11,6 @@
         <property name="customerName" type="java.lang.String">
             <column name="CUSTOMER_NAME" />
         </property>
-        <many-to-one name="address" class="com.hephec.hibernate.mapping.Address" cascade="all" unique="true">
-        </many-to-one>
+        <many-to-one name="address" class="com.hephec.hibernate.mapping.Address" cascade="all" unique="true"></many-to-one>
     </class>
 </hibernate-mapping>
