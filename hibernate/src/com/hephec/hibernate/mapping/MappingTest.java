@@ -33,8 +33,22 @@ public class MappingTest {
 		
 	}
 	@Test
-	public void testOne2One(){
+	public void testOne2OneByPrimaryKey(){
 		
+		//按照主键实现关联关系映射
+		//Address表的ID字段既是主键,同时也作为外键参照Customer表的主键,即Address表语Customer表共享主键
+		/**
+		 * 1.在Addresss.hbm.xml文件中使用<one-to-one name="customer" class="Customer" constrained="true"/>
+		 * 元素constrained属性为true,表明Address表的ID主键同时作为外键参照Customer表,在该文件中OID使用foreign标识符生成策略
+		 *<generator class="foreign">
+		 *	<param name="property">customer</param>
+		 *</generator> 
+		 * */
+		
+	}
+	@Test
+	public void testOne2OneByForeignKey(){
+		//按照外键实现一对一的关联关系映射
 		Customer c1=new Customer();
 		c1.setCustomerName("hephec11");
 		Address a1=new Address();
