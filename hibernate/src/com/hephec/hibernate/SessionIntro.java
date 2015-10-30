@@ -16,6 +16,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.hephec.hibernate.entity.News;
+import com.hephec.hibernate.entity2.Customer;
+import com.hephec.hibernate.entity2.Orders;
 
 public class SessionIntro {
 	
@@ -282,6 +284,34 @@ public class SessionIntro {
 		
 	}
 	
+	@Test
+	public void testMany2One(){
+		Customer cs1=new Customer();
+		cs1.setCustomerName("cs1");
+		cs1.setCustomerName("cs1");
+		Orders o1=new Orders();
+		o1.setOrdersName("o1");
+	
+		Orders o2=new Orders();
+		o2.setOrdersName("o2");
+		cs1.getOrders().add(o1);
+		cs1.getOrders().add(o2);
+		
+		//需要把集合进行初始化,可以防止发生空指针异常
+		//声明集合类型需要使用接口实现，因为hibernate
+		session.save(cs1);
+		Orders or3=(Orders) session.get(Orders.class,3);
+		System.out.println(or3.getClass());
+		
+		//可能会发生懒加载异常
+		/**
+		 * set的三个属性：
+		 * 1.inverse:通常设置为true,以指定由多个一段来维护关联关系
+		 * 2.cascade:级联删除属性设置
+		 * 3.order-by排序
+		 * */
+	}
+	
 	@Before
 	public void init(){
 		//System.out.println("init...");
@@ -305,4 +335,26 @@ public class SessionIntro {
 		session.close();
 		sessionFactory.close();
 	}
+	
+	
+	@Test
+	public void testOne2One(){
+		// Hibernate_基于外键映射的1-1关联关系
+		
+	}
+	
+	
+	@Test
+	public void testHQL(){
+		//Hibernate提供了以下几种检索对象的方式
+		/**
+		 * 1.导航对象图检索方式
+		 * 2.OID 检索
+		 * 3.HQL检索方式
+		 * 4.QBC检索方式
+		 * 
+		 * */
+	}
+
 }
+

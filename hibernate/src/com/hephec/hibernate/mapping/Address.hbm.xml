@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-10-30 14:50:01 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+
+    <class name="com.hephec.hibernate.mapping.Address" table="ADDRESS">
+        <id name="addressID" type="java.lang.Integer">
+            <column name="ADDRESS_ID" />
+            <generator class="native" />
+        </id>
+        <property name="addressName" type="java.lang.String">
+            <column name="ADDRESS_NAME" />
+        </property>
+        
+        <!-- property-ref:属性表明建立了从address对象到Customer对象的 关联-->
+        <one-to-one name="customer" class="com.hephec.hibernate.mapping.Customer" property-ref="address">
+        </one-to-one>
+    </class>
+</hibernate-mapping>
