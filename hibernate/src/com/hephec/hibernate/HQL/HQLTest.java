@@ -64,10 +64,10 @@ public class HQLTest {
 		}
 		System.out.println(emps.size());
 		
+		
 	}
 	
 	public List<Address> testFindCustomerByName(String name){
-		return session.createQuery("from Customer as c left join fetch c.orders where c.name="+name)
-							.list();
+		return session.createQuery("from Customer as c left join fetch c.orders where c.name="+name).list();
 	}
 }
